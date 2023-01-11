@@ -9,12 +9,20 @@ public class Order {
 	public final static String ORDER_STATUS_FINISHED = "Finished";
 	public final static String ORDER_STATUS_NEW = "New";
 	public final static String ORDER_STATUS_ACTIVE = "Active";
-	
+
+	private int id;
 	private Date date;
 	private String status;
 	private int discount;
 	private String customerName;
 	private List<Orderline> orderlines;
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getId() {
+		return id;
+	}
 
 	public String getStatus() {
 		return status;
@@ -36,6 +44,10 @@ public class Order {
 		return date;
 	}
 
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
@@ -54,13 +66,10 @@ public class Order {
 
 	public double getTotalPrice() {
 
-		return 0;
+		double result = 0; 
+		for(Orderline ol : orderlines) {
+			result += ol.getProduct().getPrice() * (discount/100);
+		}
+		return result;
 	}
-	
-	public Order() {
-		
-		this.date = new Date();
-		this.orderlines = new ArrayList<Orderline>();
-	}
-
 }
