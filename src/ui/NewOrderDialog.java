@@ -196,6 +196,7 @@ public class NewOrderDialog extends JDialog {
 
 	private void init() {
 		this.order = new Order();
+		this.order.setStatus(Order.ORDER_STATUS_NEW);
 		cboProducts.setModel(GuiHelpers.mapToComboBoxModel(ordersCtrl.getProductsForSale()));
 		lstOrderlines.setModel(new DefaultListModel<Orderline>());
 	}
