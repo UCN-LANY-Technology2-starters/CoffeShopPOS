@@ -211,7 +211,8 @@ public class NewOrderDialog extends JDialog {
 
 	private void calculateDiscount() {
 		if (this.order != null) {
-			int discount = Integer.parseInt(txtDiscount.getText());
+			
+			int discount = Integer.parseInt(txtDiscount.getText().isBlank() ? "0" : txtDiscount.getText());
 			order.setDiscount(discount);
 			update();
 		}
