@@ -232,7 +232,9 @@ public class NewOrderDialog extends JDialog {
 		}
 
 		if (!itemAdded) {
-			Orderline ol = new Orderline(product, 1);
+			Orderline ol = new Orderline();
+			ol.setProduct(product);
+			ol.setQuantity(1);
 			this.order.getOrderlines().add(ol);
 		}
 

@@ -17,9 +17,7 @@ public class Orderline {
 		return product;
 	}
 
-	public Orderline(Product product, int quantity) {
-		
+	public void setProduct(Product product) {
 		this.product = product;
-		this.quantity = quantity;
 	}
 }

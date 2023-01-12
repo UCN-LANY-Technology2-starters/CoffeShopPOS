@@ -61,15 +61,21 @@ public class Order {
 	}
 
 	public void addOrderline(Orderline ol) {
-
+		orderlines.add(ol);
 	}
 
 	public double getTotalPrice() {
 
-		double result = 0; 
-		for(Orderline ol : orderlines) {
-			result += ol.getProduct().getPrice() * (discount/100);
+		double result = 0;
+		for (Orderline ol : orderlines) {
+			double subtotal = ol.getProduct().getPrice() * ol.getQuantity();
+			result += subtotal + (subtotal * (discount / 100));
 		}
 		return result;
+	}
+	
+	public Order() {
+		
+		this.orderlines = new ArrayList<Orderline>();
 	}
 }
